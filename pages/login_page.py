@@ -1,3 +1,4 @@
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -24,4 +25,10 @@ class LoginPage(BasePage):
         password_repeat = self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_REPEAT)
         registration_button = self.is_element_present(*LoginPageLocators.REGISTRATION_BUTTON)
         assert email and password and registration_button and password_repeat, 'page is broken, this is no registration form'
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_REPEAT).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON).click()
 

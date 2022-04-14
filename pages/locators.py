@@ -7,6 +7,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BUSKET_LINK = (By.LINK_TEXT, 'Посмотреть корзину')
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class LoginPageLocators():
     EMAIL = (By.ID, 'id_login-username')
