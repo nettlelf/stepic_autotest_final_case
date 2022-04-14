@@ -6,6 +6,7 @@ class MainPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BUSKET_LINK = (By.LINK_TEXT, 'Посмотреть корзину')
 
 class LoginPageLocators():
     EMAIL = (By.ID, 'id_login-username')
@@ -27,4 +28,8 @@ class ProductPageLocators():
     ALERT_PRICE_IN_BUSKET = (By.CSS_SELECTOR, '.alert-info strong')
 
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alert-success:nth-child(1)')
+
+class BusketLocators():
+    BUSKET_IS_EMPTY = (By.CSS_SELECTOR, '.content p')
+    PRODUCTS = (By.CSS_SELECTOR, '.col-sm-6.h3')
 
