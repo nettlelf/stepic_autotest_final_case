@@ -3,6 +3,10 @@ from selenium.webdriver.common.by import By
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#registration_link')
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
 class LoginPageLocators():
     EMAIL = (By.ID, 'id_login-username')
     PASSWORD = (By.ID, 'id_login-password')
@@ -21,4 +25,6 @@ class ProductPageLocators():
 
     ALERT_NAME_OF_PRODUCT = (By.CSS_SELECTOR, '.alert-success:nth-child(1) strong')
     ALERT_PRICE_IN_BUSKET = (By.CSS_SELECTOR, '.alert-info strong')
+
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alert-success:nth-child(1)')
 
