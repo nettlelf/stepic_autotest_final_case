@@ -14,3 +14,11 @@ class LoginPageLocators():
     REGISTRATION_PASSWORD_REPEAT = (By.ID, 'id_registration-password2')
     REGISTRATION_BUTTON = (By.NAME, 'registration_submit')
 
+class ProductPageLocators():
+    BUTTON_ADD_TO_BUSKET = (By.CLASS_NAME, 'btn-add-to-basket')
+    NAME_OF_PRODUCT = (By.CSS_SELECTOR, '.product_main h1')
+    PRICE = (By.CSS_SELECTOR, '.product_main .price_color')
+
+    ALERT_NAME_OF_PRODUCT = (By.CSS_SELECTOR, '.alert-success:nth-child(1) strong')
+    ALERT_PRICE_IN_BUSKET = (By.CSS_SELECTOR, '.alert-info strong')
+
