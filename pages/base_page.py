@@ -41,7 +41,7 @@ class BasePage():
         return True
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def go_to_basket(self):
@@ -57,10 +57,9 @@ class BasePage():
         except NoSuchElementException:
             print('Cannot find element on the page, cant click')
 
-    def return_text_value(self, how, what):
+    def return_value(self, how, what):
         try:
             value = self.browser.find_element(how,what)
-            value = value.text
         except NoSuchElementException:
             print('Cannot find element on the page, cant see value')
             return None

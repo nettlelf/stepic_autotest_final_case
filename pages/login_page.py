@@ -1,4 +1,3 @@
-
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -17,14 +16,22 @@ class LoginPage(BasePage):
         email = self.is_element_present(*LoginPageLocators.EMAIL)
         password = self.is_element_present(*LoginPageLocators.PASSWORD)
         sign_in_button = self.is_element_present(*LoginPageLocators.SIGN_IN)
-        assert email and password and sign_in_button, f'page is broken, this is no login form {email, password, sign_in_button}'
+        self.should_element_exist(email)
+        self.should_element_exist(password)
+        self.should_element_exist(sign_in_button)
 
     def should_be_register_form(self):
         email = self.is_element_present(*LoginPageLocators.REGISTRATION_EMAIL)
         password = self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD)
         password_repeat = self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_REPEAT)
         registration_button = self.is_element_present(*LoginPageLocators.REGISTRATION_BUTTON)
-        assert email and password and registration_button and password_repeat, 'page is broken, this is no registration form'
+        self.should_element_exist(email)
+        self.should_element_exist(password)
+        self.should_element_exist(password_repeat)
+        self.should_element_exist(registration_button)
+
+    def should_element_exist(self, element):
+        assert element, f'element not exist, {element}'
 
     def register_new_user(self, email, password):
         self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL).send_keys(email)
