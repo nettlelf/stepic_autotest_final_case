@@ -40,12 +40,28 @@ class BasePage():
 
         return True
 
+    def find_login_page(self):
+        try:
+            link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        except NoSuchElementException:
+            print('not found login link')
+            return None
+        return link
+
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link = self.find_login_page()
         link.click()
 
+    def find_busket_link(self):
+        try:
+            link = self.browser.find_element(*BasePageLocators.BUSKET_LINK)
+        except NoSuchElementException:
+            print('no found busket link')
+            return None
+        return link
+
     def go_to_basket(self):
-        link = self.browser.find_element(*BasePageLocators.BUSKET_LINK)
+        link = self.find_busket_link()
         link.click()
 
     def should_be_login_link(self):

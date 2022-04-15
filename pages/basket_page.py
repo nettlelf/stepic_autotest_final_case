@@ -4,9 +4,7 @@ from .locators import BusketLocators
 class BusketPage(BasePage):
 
     def should_be_busket_empty(self):
-        message = self.browser.find_element(*BusketLocators.BUSKET_IS_EMPTY)
-        message = message.text
-        assert message == 'Ваша корзина пуста Продолжить покупки', f'{message}, There is no empty busket message'
+        assert self.is_element_present(*BusketLocators.BUSKET_IS_EMPTY), 'message busket is empty isnt exist'
 
     def should_be_no_products(self):
         assert self.is_not_element_present(*BusketLocators.PRODUCTS),'there is products in busket'
